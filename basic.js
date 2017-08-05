@@ -1,26 +1,25 @@
-[
-	{
-	"partial": "A group of owls is called a parliment.",
-	"cloze": "parliment"
-	},
-	{
-	"partial": "Penicilian is used to fight bacterial infections.",
-	"cloze": "bacterial"
-	},
-	{
-	"partial": "Angel Falls is the name of the world's highest uninterrupted waterfall it is located in Venezuela.",
-	"cloze": "Venezuela"
-	},
-	{
-	"partial": "A Grammy is an award to recognize outstanding achievement in music",
-	"cloze": "music"
-	},
-	{
-	"partial": "The St. Lawrence River forms part of the border between United States and Canada.",
-	"cloze": "Canada"
-	},
-	{
-	"partial": "Joe Louis is the longest reigning heavyweight boxing champion with 25 successful defenses.",
-	"cloze": "Joe Louis"
-	}
-]
+// require fs
+var fs = require("fs");
+
+module.exports = BasicFlashcard;
+
+// constructor for BasicFlashcard
+function BasicFlashcard(front, back) {
+    this.front = front;
+    this.back = back;
+    this.create = function() {
+        // flashcard object to be appended to file
+        var data = {
+            front: this.front,
+            back: this.back,
+            type: "basic",
+        };
+        // add card to log.txt
+        fs.appendFile("log.txt", JSON.stringify(data) + ';', "utf8", function(error) {
+            // if there is an error, log the error
+            if (error) {
+                console.log(error);
+            }
+        });
+    };
+}
