@@ -1,6 +1,6 @@
 [
 	{
-	"partial": "A group of owls is called a parliment.",
+	"partial": "",
 	"cloze": "parliment"
 	},
 	{
